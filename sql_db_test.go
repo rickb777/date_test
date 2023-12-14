@@ -8,7 +8,7 @@ import (
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
 	. "github.com/onsi/gomega"
-	"github.com/rickb777/date"
+	"github.com/rickb777/date/v2"
 	"os"
 	"testing"
 )
@@ -99,7 +99,7 @@ func TestDatesCrud_using_database(t *testing.T) {
 	g := NewGomegaWithT(t)
 
 	examples := []date.Date{
-		{}, // zero date
+		date.Zero,
 		date.New(2000, 3, 31),
 		date.New(2020, 12, 31),
 	}
@@ -114,8 +114,7 @@ func TestDatesCrud_using_database(t *testing.T) {
 	g.Expect(err).NotTo(HaveOccurred())
 
 	for _, e := range examples {
-		es := date.DateString(e)
-		n, err := db.Exec(insertSql[driver], e, e, es, es)
+		n, err := db.Exec(insertSql[driver], e, e, e, e)
 		g.Expect(err).NotTo(HaveOccurred())
 		g.Expect(n).NotTo(BeEquivalentTo(1))
 	}
@@ -128,13 +127,13 @@ func TestDatesCrud_using_database(t *testing.T) {
 	for rows.Next() {
 		var id int
 		var d1, d2 date.Date
-		var s1, s2 date.DateString
+		var s1, s2 date.Date
 		err = rows.Scan(&id, &d1, &d2, &s1, &s2)
 		g.Expect(err).NotTo(HaveOccurred())
 		g.Expect(d1).To(Equal(examples[j]))
 		g.Expect(d2).To(Equal(examples[j]))
-		g.Expect(s1).To(Equal(examples[j].DateString()))
-		g.Expect(s2).To(Equal(examples[j].DateString()))
+		g.Expect(s1).To(Equal(examples[j]))
+		g.Expect(s2).To(Equal(examples[j]))
 		j++
 	}
 }
