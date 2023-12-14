@@ -1,10 +1,13 @@
 #!/bin/bash -e
 cd $(dirname $0)
-PATH=$HOME/gopath/bin:$GOPATH/bin:$PATH
+PATH=$HOME/go/bin:$PATH
+unset GOPATH
 
 if ! type -p goveralls; then
   echo go get github.com/mattn/goveralls
   go get github.com/mattn/goveralls
+  echo go install github.com/mattn/goveralls
+  go install github.com/mattn/goveralls
 fi
 
 echo Sqlite test...
