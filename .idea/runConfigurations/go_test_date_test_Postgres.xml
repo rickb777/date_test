@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="go test date_test Postgres" type="GoTestRunConfiguration" factoryName="Go Test">
+    <module name="date_test" />
+    <working_directory value="$PROJECT_DIR$" />
+    <envs>
+      <env name="GO_DRIVER" value="postgres" />
+      <env name="GO_DSN" value="postgres://test:test@/test" />
+    </envs>
+    <kind value="PACKAGE" />
+    <package value="github.com/rickb777/date_test" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$" />
+    <framework value="gotest" />
+    <method v="2" />
+  </configuration>
+</component>

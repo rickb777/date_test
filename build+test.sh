@@ -20,7 +20,7 @@ if [ "$1" = "mysql" ]; then
   echo
   echo Mysql test...
   export GO_DRIVER='mysql'
-  export GO_DSN='testuser:TestPasswd.9.9.9@/test'
+  export GO_DSN='test:test@/test'
   go test -v .
 fi
 
@@ -29,6 +29,6 @@ if [ "$1" = "postgres" ]; then
   echo
   echo Postgres test...
   export GO_DRIVER='postgres'
-  export GO_DSN='postgres://testuser:TestPasswd.9.9.9@/test'
+  export GO_DSN='postgres://test:test@/test'
   go test -v .
 fi
