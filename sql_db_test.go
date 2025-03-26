@@ -7,8 +7,8 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
-	. "github.com/onsi/gomega"
 	"github.com/rickb777/date"
+	"github.com/rickb777/expect"
 	"os"
 	"testing"
 )
@@ -96,8 +96,6 @@ var insertSql = map[string]string{
 }
 
 func TestDatesCrud_using_database(t *testing.T) {
-	g := NewGomegaWithT(t)
-
 	examples := []date.Date{
 		{}, // zero date
 		date.New(2000, 3, 31),
@@ -108,20 +106,20 @@ func TestDatesCrud_using_database(t *testing.T) {
 	//defer cleanup(d.DB())
 
 	_, err := db.Exec(`DROP TABLE IF EXISTS dates`)
-	g.Expect(err).NotTo(HaveOccurred())
+	expect.Error(err).Not().ToHaveOccurred(t)
 
 	_, err = db.Exec(createSql[driver])
-	g.Expect(err).NotTo(HaveOccurred())
+	expect.Error(err).Not().ToHaveOccurred(t)
 
 	for _, e := range examples {
 		es := date.DateString(e)
 		n, err := db.Exec(insertSql[driver], e, e, es, es)
-		g.Expect(err).NotTo(HaveOccurred())
-		g.Expect(n).NotTo(BeEquivalentTo(1))
+		expect.Error(err).Not().ToHaveOccurred(t)
+		expect.Number(n.RowsAffected()).ToBe(t, int64(1))
 	}
 
 	rows, err := db.Query(`SELECT * FROM dates ORDER BY ID`)
-	g.Expect(err).NotTo(HaveOccurred())
+	expect.Error(err).Not().ToHaveOccurred(t)
 	defer rows.Close()
 
 	j := 0
@@ -130,11 +128,11 @@ func TestDatesCrud_using_database(t *testing.T) {
 		var d1, d2 date.Date
 		var s1, s2 date.DateString
 		err = rows.Scan(&id, &d1, &d2, &s1, &s2)
-		g.Expect(err).NotTo(HaveOccurred())
-		g.Expect(d1).To(Equal(examples[j]))
-		g.Expect(d2).To(Equal(examples[j]))
-		g.Expect(s1).To(Equal(examples[j].DateString()))
-		g.Expect(s2).To(Equal(examples[j].DateString()))
+		expect.Error(err).Not().ToHaveOccurred(t)
+		expect.Any(d1).ToBe(t, examples[j])
+		expect.Any(d2).ToBe(t, examples[j])
+		expect.Any(s1).ToBe(t, examples[j].DateString())
+		expect.Any(s2).ToBe(t, examples[j].DateString())
 		j++
 	}
 }
