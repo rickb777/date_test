@@ -7,8 +7,8 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
-	. "github.com/onsi/gomega"
 	"github.com/rickb777/date/v2"
+	"github.com/rickb777/expect"
 	"os"
 	"strings"
 	"sync"
@@ -101,8 +101,6 @@ var examples = []date.Date{
 var valuerµ = sync.Mutex{}
 
 func TestDatesCrud_using_database_valuer_as_string(t *testing.T) {
-	g := NewGomegaWithT(t)
-
 	valuerµ.Lock()
 	defer valuerµ.Unlock()
 	date.Valuer = date.ValueAsString
@@ -111,7 +109,7 @@ func TestDatesCrud_using_database_valuer_as_string(t *testing.T) {
 	//defer cleanup(d.DB())
 
 	_, err := db.Exec(`DROP TABLE IF EXISTS dates`)
-	g.Expect(err).NotTo(HaveOccurred())
+	expect.Error(err).Not().ToHaveOccurred(t)
 
 	create := strings.NewReplacer(
 		"{D1}", "TEXT",
@@ -122,20 +120,18 @@ func TestDatesCrud_using_database_valuer_as_string(t *testing.T) {
 	//t.Log(create)
 
 	_, err = db.Exec(create)
-	g.Expect(err).NotTo(HaveOccurred())
+	expect.Error(err).Not().ToHaveOccurred(t)
 
 	for _, e := range examples {
 		n, err := db.Exec(insertSql[driver], e, int64(e), e)
-		g.Expect(err).NotTo(HaveOccurred())
-		g.Expect(n).NotTo(BeEquivalentTo(1))
+		expect.Error(err).Not().ToHaveOccurred(t)
+		expect.Number(n.RowsAffected()).ToBe(t, int64(1))
 	}
 
-	checkDatesValues(err, db, g)
+	checkDatesValues(err, db, t)
 }
 
 func TestDatesCrud_using_database_valuer_as_integer(t *testing.T) {
-	g := NewGomegaWithT(t)
-
 	valuerµ.Lock()
 	defer valuerµ.Unlock()
 	date.Valuer = date.ValueAsInt
@@ -144,7 +140,7 @@ func TestDatesCrud_using_database_valuer_as_integer(t *testing.T) {
 	//defer cleanup(d.DB())
 
 	_, err := db.Exec(`DROP TABLE IF EXISTS dates`)
-	g.Expect(err).NotTo(HaveOccurred())
+	expect.Error(err).Not().ToHaveOccurred(t)
 
 	create := strings.NewReplacer(
 		"{D1}", "INTEGER",
@@ -155,20 +151,20 @@ func TestDatesCrud_using_database_valuer_as_integer(t *testing.T) {
 	//t.Log(create)
 
 	_, err = db.Exec(create)
-	g.Expect(err).NotTo(HaveOccurred())
+	expect.Error(err).Not().ToHaveOccurred(t)
 
 	for _, e := range examples {
 		n, err := db.Exec(insertSql[driver], e, int64(e), e.String())
-		g.Expect(err).NotTo(HaveOccurred())
-		g.Expect(n).NotTo(BeEquivalentTo(1))
+		expect.Error(err).Not().ToHaveOccurred(t)
+		expect.Number(n.RowsAffected()).ToBe(t, int64(1))
 	}
 
-	checkDatesValues(err, db, g)
+	checkDatesValues(err, db, t)
 }
 
-func checkDatesValues(err error, db *sql.DB, g *WithT) {
+func checkDatesValues(err error, db *sql.DB, t *testing.T) {
 	rows, err := db.Query(`SELECT * FROM dates ORDER BY ID`)
-	g.Expect(err).NotTo(HaveOccurred())
+	expect.Error(err).Not().ToHaveOccurred(t)
 	defer rows.Close()
 
 	j := 0
@@ -176,10 +172,10 @@ func checkDatesValues(err error, db *sql.DB, g *WithT) {
 		var id int
 		var d1, d2, d3 date.Date
 		err = rows.Scan(&id, &d1, &d2, &d3)
-		g.Expect(err).NotTo(HaveOccurred())
-		g.Expect(d1).To(Equal(examples[j]))
-		g.Expect(d2).To(Equal(examples[j]))
-		g.Expect(d3).To(Equal(examples[j]))
+		expect.Error(err).Not().ToHaveOccurred(t)
+		expect.Any(d1).ToBe(t, examples[j])
+		expect.Any(d2).ToBe(t, examples[j])
+		expect.Any(d3).ToBe(t, examples[j])
 		j++
 	}
 }
