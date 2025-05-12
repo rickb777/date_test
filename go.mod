@@ -3,12 +3,12 @@ module github.com/rickb777/date_test
 go 1.24.1
 
 require (
-	github.com/go-sql-driver/mysql v1.9.1
+	github.com/go-sql-driver/mysql v1.9.2
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/lib/pq v1.10.9
-	github.com/mattn/go-sqlite3 v1.14.24
-	github.com/rickb777/date/v2 v2.1.8
-	github.com/rickb777/expect v0.9.0
+	github.com/mattn/go-sqlite3 v1.14.28
+	github.com/rickb777/date/v2 v2.1.9
+	github.com/rickb777/expect v0.21.0
 )
 
 require (
@@ -24,11 +24,11 @@ require (
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgtype v1.14.4 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/rickb777/period v1.0.9 // indirect
-	github.com/rickb777/plural v1.4.2 // indirect
+	github.com/rickb777/period v1.0.12 // indirect
+	github.com/rickb777/plural v1.4.3 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
-	golang.org/x/crypto v0.36.0 // indirect
-	golang.org/x/text v0.23.0 // indirect
+	golang.org/x/crypto v0.38.0 // indirect
+	golang.org/x/text v0.25.0 // indirect
 )
 
 // for testing - check manually for consistent Git branch
