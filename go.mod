@@ -23,12 +23,16 @@ require (
 	github.com/jackc/pgproto3/v2 v2.3.3 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgtype v1.14.4 // indirect
+	github.com/mattn/goveralls v0.0.12 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/rickb777/date v1.21.1 // indirect
 	github.com/rickb777/period v1.0.15 // indirect
 	github.com/rickb777/plural v1.4.4 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	golang.org/x/crypto v0.38.0 // indirect
+	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/text v0.25.0 // indirect
+	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d // indirect
 )
 
 // for testing - check manually for consistent Git branch
