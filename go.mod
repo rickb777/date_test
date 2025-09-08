@@ -7,7 +7,7 @@ require (
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/lib/pq v1.10.9
 	github.com/mattn/go-sqlite3 v1.14.32
-	github.com/rickb777/date/v2 v2.1.11
+	github.com/rickb777/date/v2 v2.1.12
 	github.com/rickb777/expect v0.24.0
 )
 

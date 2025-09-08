@@ -102,6 +102,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rickb777/date/v2 v2.1.11 h1:moIvP5W8gsl5ZIL/8eshfIQEAwv8/3idxkj0n48GTeY=
 github.com/rickb777/date/v2 v2.1.11/go.mod h1:COUUjT6npCfNO8NSDu780oYmdqk+UN5L8IATKAmAGAQ=
+github.com/rickb777/date/v2 v2.1.12 h1:KENT8jF9Oz5UFpBlaNjLk7JcpUKURE86T5urjxHwM1M=
+github.com/rickb777/date/v2 v2.1.12/go.mod h1:T8JZ4evLWNlQ+rFSh7m4UPSvZ19mJDOPmz7xQQ4uyHA=
 github.com/rickb777/expect v0.24.0 h1:IzFxn4jINkVuCmx4jdQP7LxaIBhG60bDVbeGWk3xnzo=
 github.com/rickb777/expect v0.24.0/go.mod h1:jwwS3gmukQ7wPxzEtOhMJEv43UxSwOBE7MUgTt8CX0k=
 github.com/rickb777/period v1.0.15 h1:nWR4rgCtImT0CXw5kAsjHv+ExCEFt/18zAySOi7pWI8=
