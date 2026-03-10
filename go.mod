@@ -7,12 +7,12 @@ require (
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/lib/pq v1.11.2
 	github.com/mattn/go-sqlite3 v1.14.34
-	github.com/rickb777/date/v2 v2.3.5
+	github.com/rickb777/date/v2 v2.3.6
 	github.com/rickb777/expect v1.0.8
 )
 
 require (
-	filippo.io/edwards25519 v1.1.0 // indirect
+	filippo.io/edwards25519 v1.2.0 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/govalues/decimal v0.1.36 // indirect
@@ -24,7 +24,7 @@ require (
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgtype v1.14.4 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/rickb777/period v1.0.24 // indirect
+	github.com/rickb777/period v1.0.25 // indirect
 	github.com/rickb777/plural v1.4.8 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
 	golang.org/x/crypto v0.48.0 // indirect
