@@ -8,7 +8,7 @@ require (
 	github.com/lib/pq v1.12.3
 	github.com/mattn/go-sqlite3 v1.14.48
 	github.com/rickb777/date v1.22.0
-	github.com/rickb777/expect v1.3.0
+	github.com/rickb777/expect v1.3.2
 )
 
 require (
@@ -25,6 +25,7 @@ require (
 	github.com/jackc/pgtype v1.14.4 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rickb777/plural v1.4.10 // indirect
+	github.com/rickb777/plural/v2 v2.1.0 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	golang.org/x/crypto v0.54.0 // indirect
 	golang.org/x/text v0.40.0 // indirect
