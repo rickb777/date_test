@@ -8,7 +8,7 @@ require (
 	github.com/lib/pq v1.12.3
 	github.com/mattn/go-sqlite3 v1.14.48
 	github.com/rickb777/date/v2 v2.3.14
-	github.com/rickb777/expect v1.3.2
+	github.com/rickb777/expect v1.3.3
 )
 
 require (
