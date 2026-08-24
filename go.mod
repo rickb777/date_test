@@ -1,12 +1,12 @@
 module github.com/rickb777/date_test
 
-go 1.25.0
+go 1.26.0
 
 require (
 	github.com/go-sql-driver/mysql v1.10.0
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/lib/pq v1.12.3
-	github.com/mattn/go-sqlite3 v1.14.48
+	github.com/mattn/go-sqlite3 v1.14.50
 	github.com/rickb777/date v1.22.0
 	github.com/rickb777/expect v1.3.3
 )
@@ -27,6 +27,6 @@ require (
 	github.com/rickb777/plural v1.4.11 // indirect
 	github.com/rickb777/plural/v2 v2.1.0 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
-	golang.org/x/crypto v0.54.0 // indirect
-	golang.org/x/text v0.40.0 // indirect
+	golang.org/x/crypto v0.55.0 // indirect
+	golang.org/x/text v0.41.0 // indirect
 )
