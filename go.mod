@@ -6,8 +6,8 @@ require (
 	github.com/go-sql-driver/mysql v1.10.0
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/lib/pq v1.12.3
-	github.com/mattn/go-sqlite3 v1.14.49
-	github.com/rickb777/date/v2 v2.1.15
+	github.com/mattn/go-sqlite3 v1.14.50
+	github.com/rickb777/date/v2 v2.3.15
 	github.com/rickb777/expect v1.3.3
 )
 
